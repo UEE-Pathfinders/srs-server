@@ -164,7 +164,7 @@ echo ""
 
 # [Server Settings]
 echo "[Server Settings]"
-echo "CLIENT_EXPORT_FILE_PATH=${CLIENT_EXPORT_FILE_PATH:-$LOGS_DIR/clients-list.json}"
+echo "CLIENT_EXPORT_FILE_PATH=/opt/srs/clients-list.json"
 echo "SERVER_IP=${SERVER_IP:-0.0.0.0}"
 echo "SERVER_PORT=${SERVER_PORT:-5002}"
 echo "UPNP_ENABLED=${UPNP_ENABLED:-true}"
@@ -217,7 +217,7 @@ echo ""
 echo "Starting SRS Server..."
 
 # Build the startup command with required arguments
-STARTUP_CMD="./SRS-Server-Commandline --cfg=$CONFIG_FILE --port=${SERVER_PORT:-5002} --address=${SERVER_IP:-0.0.0.0}"
+STARTUP_CMD="./SRS-Server-Commandline --cfg=$CONFIG_FILE --port=${SERVER_PORT:-5002} --serverBindIP=${SERVER_IP:-0.0.0.0}"
 
 # Add server-side presets flag if enabled (SRS requires CLI flag even if config has setting)
 if [ "${SERVER_PRESETS_ENABLED:-false}" = "true" ]; then
