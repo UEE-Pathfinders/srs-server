@@ -295,13 +295,17 @@ The entrypoint script will regenerate the configuration file with your updated s
 
 ### Enhanced Server Management
 
-Version 2.2.0.4 introduces several new server management features:
+Version 2.3.0.3 introduces several enhanced server management features:
 
 - **Improved IP Detection**: Automatic server IP detection for SRS connections
 - **Simplified Chat Commands**: New shorter autoconnect chat command (just port needed)
 - **Enhanced UI**: Consistent buttons and interface improvements across settings
 - **Better Logging**: Fixed transmission logging with proper CSV format support
-- **Server-Side Presets Fix**: Automatic command-line argument handling for server-side presets feature
+- **Automatic Command-Line Arguments**: The entrypoint script automatically handles all required SRS server startup arguments:
+  - `--port` and `--address` from environment variables (SERVER_PORT and SERVER_IP)
+  - `--serverPresetChannelsEnabled=true` when SERVER_PRESETS_ENABLED is true
+  - `--cfg` pointing to the generated configuration file
+- **Server-Side Presets Fix**: Complete automation of server-side presets feature activation
 
 ### File Structure
 
