@@ -2,6 +2,10 @@
 # This file defines how to run the SRS server in a Docker container
 version: '3.8'
 
+configs:
+  awacs_config:
+    file: ./awacs.json
+
 services:
   dcs-srs:
     # Container name - change this if you want a different name for your container
@@ -29,6 +33,11 @@ services:
       - "/docker/dcs-srs/logs:/opt/srs/logs"
       - "/docker/dcs-srs/cfg:/opt/srs/cfg"
 
+    # Configs
+    configs:
+      - source: awacs_config
+      - target: /opt/srs/Presets
+
     # WORKING DIRECTORY & ENTRYPOINT
     working_dir: /opt/srs
     entrypoint: ["/opt/srs/entrypoint.sh"]
@@ -38,7 +47,7 @@ services:
 
       # Log all radio transmissions to file (true/false)
       # Set to "true" if you want to record all voice communications
-      TRANSMISSION_LOG_ENABLED: "true"
+      TRANSMISSION_LOG_ENABLED: "false"
 
       # Export connected clients list to JSON file (true/false)
       # Useful for external applications that need to know who's connected
@@ -90,11 +99,11 @@ services:
 
       # Enable real-world radio transmission effects (true/false)
       # Adds realistic radio static and effects to transmissions
-      IRL_RADIO_TX: "false"
+      IRL_RADIO_TX: "true"
 
       # Enable real-world radio interference effects (true/false)
       # Adds realistic interference when receiving radio
-      IRL_RADIO_RX_INTERFERENCE: "false"
+      IRL_RADIO_RX_INTERFERENCE: "true"
 
       # Allow more than 10 radio presets per aircraft (true/false)
       # Set to "true" for expanded radio capabilities
@@ -114,7 +123,7 @@ services:
 
       # Override individual radio effects settings (true/false)
       # Forces server radio effects settings for all clients
-      RADIO_EFFECT_OVERRIDE: "false"
+      RADIO_EFFECT_OVERRIDE: "true"
 
       # Show the name of who is transmitting (true/false)
       # Displays transmitter's name during radio communications
@@ -156,8 +165,8 @@ services:
 
       # Password for blue team external control
       # Change "blue" to a secure password for blue team access
-      EXTERNAL_AWACS_MODE_BLUE_PASSWORD: "blue"
+      EXTERNAL_AWACS_MODE_BLUE_PASSWORD: "7CSG"
 
       # Password for red team external control
       # Change "red" to a secure password for red team access
-      EXTERNAL_AWACS_MODE_RED_PASSWORD: "red"
+      EXTERNAL_AWACS_MODE_RED_PASSWORD: "7CSG"

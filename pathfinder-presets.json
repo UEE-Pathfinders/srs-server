@@ -1,0 +1,15 @@
+{
+  "name": "UEE Pathfinder Frequencies",
+  "channels": [
+    {
+      "name": "Fleet Ops",
+      "frequencies": "300.5",
+      "modulation": "AM"
+    },
+    {
+      "name": "Tac Ops",
+      "frequency": "301.5",
+      "modulation": "AM"
+    }
+  ]
+}
