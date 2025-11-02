@@ -4,7 +4,7 @@ version: '3.8'
 
 configs:
   awacs_config:
-    file: ./awacs.json
+    file: ./pathfinder-presets.json
 
 services:
   dcs-srs:
@@ -36,7 +36,7 @@ services:
     # Configs
     configs:
       - source: awacs_config
-      - target: /opt/srs/Presets
+      - target: /docker/dcs-srs/Presets
 
     # WORKING DIRECTORY & ENTRYPOINT
     working_dir: /opt/srs
