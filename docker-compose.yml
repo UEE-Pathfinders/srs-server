@@ -2,10 +2,6 @@
 # This file defines how to run the SRS server in a Docker container
 version: '3.8'
 
-configs:
-  awacs_config:
-    file: ./pathfinder-presets.json
-
 services:
   dcs-srs:
     # Container name - change this if you want a different name for your container
@@ -30,13 +26,8 @@ services:
 
     volumes:
       # Mount host directories to allow user-managed logs and config
-      - "/docker/dcs-srs/logs:/opt/srs/logs"
-      - "/docker/dcs-srs/cfg:/opt/srs/cfg"
-
-    # Configs
-    configs:
-      - source: awacs_config
-      - target: /docker/dcs-srs/Presets
+      - "~/server/logs:/opt/srs/logs"
+      - "~/server/cfg:/opt/srs/cfg"
 
     # WORKING DIRECTORY & ENTRYPOINT
     working_dir: /opt/srs
@@ -103,11 +94,11 @@ services:
 
       # Enable real-world radio interference effects (true/false)
       # Adds realistic interference when receiving radio
-      IRL_RADIO_RX_INTERFERENCE: "true"
+      IRL_RADIO_RX_INTERFERENCE: "false"
 
       # Allow more than 10 radio presets per aircraft (true/false)
       # Set to "true" for expanded radio capabilities
-      RADIO_EXPANSION: "true"
+      RADIO_EXPANSION: "false"
 
       # Allow encrypted radio communications (true/false)
       # Enables encryption features for secure communications
@@ -169,4 +160,4 @@ services:
 
       # Password for red team external control
       # Change "red" to a secure password for red team access
-      EXTERNAL_AWACS_MODE_RED_PASSWORD: "7CSG"
+      EXTERNAL_AWACS_MODE_RED_PASSWORD: "7CSGRED"

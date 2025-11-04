@@ -31,7 +31,6 @@ WORKDIR /opt/srs
 COPY SRS-Server-Commandline .
 COPY entrypoint.sh .
 COPY NLog.config .
-COPY pathfinder-presets.json ./Presets
 
 # Make the copied files executable
 # This is necessary because file permissions may not be preserved during COPY

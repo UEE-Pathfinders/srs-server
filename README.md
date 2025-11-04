@@ -146,7 +146,7 @@ services:
     volumes:
       # Mount host Presets directory to allow user-managed presets
       # Change "/docker/dcs-srs/Presets" to your preferred host directory path
-      - "/docker/dcs-srs/Presets:/opt/srs/Presets"
+      - "~/server/Presets:/opt/srs/Presets"
     
     environment:
       # ===== GENERAL RADIO SETTINGS =====

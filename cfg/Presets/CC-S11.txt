@@ -1,0 +1,10 @@
+Vessel 1 - ATC | 68.880
+Vessel 1 - 1MC | 68.500
+Vessel 2 - ATC | 67.880
+Vessel 2 - 1MC | 67.500
+MOB Security | 42.480
+MOB - ATC | 42.200
+CAS 1 | 55.550
+CAS 2 | 55.540
+DROP 1 | 55.450
+DROP 2 | 55.440
